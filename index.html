@@ -174,27 +174,27 @@ span.paper:hover {
                             <p>Beat the PC!</p>
                             <p>Press an icon to play!</p>
                             </div>
-                        
+
                         <div class="flex w-full mr-autoh-12 mt-8">
                                 <div class="w-1/3 text-right pin-r">
-                                    <button><span class="rock"></span></button>
+                                    <button id="rock" onclick="battle('rock')"><span class="rock"></span></button>
                                 </div>
                                 <div class="w-1/3 text-center">
-                                    <button><span class="scissor"></span></button>
+                                    <button id="scissors" onclick="battle('scissors')"><span class="scissor"></span></button>
                                 </div>
                                 <div class="w-1/3 text-left pin-l ">
-                                    <button><span class="paper"></span></button>
+                                    <button id="paper" onclick="battle('paper')"><span class="paper"></span></button>
                                 </div>
                         </div>
                         <div class="flex ml-auto mr-auto sm:w-2/3 mt-8 border p-10">
                                 <div class="w-1/3 text-white align-top text-center">
-                                 Victories:1
+                                 <span id="count_person">Your wins: 1</span>
                                 </div>
                                 <div class="w-1/3 text-white align-top text-center">
-                                 Draws: 2
+                                 <span id="count_draws">Draws: 1</span>
                                 </div>
                                 <div class="w-1/3 text-white align-top text-center">
-                                 Defeats: 2
+                                    <span id="count_pc">PC wins: 1</span>
                                  </div>
                         </div>
 
@@ -204,27 +204,97 @@ span.paper:hover {
             </div>
 
 
-            <script src="./src/js/fizz-buzz.js"></script>
-                
-                <script>
-                    document.addEventListener('DOMContentLoaded', () => {
-                        let button = document.getElementById('button')
-                        let displayDiv = document.getElementById('display_answer')
-                        button.addEventListener('click', () =>{
-                            let value = document.getElementById('value').value
-                            let fizzBuzz = new FizzBuzz
-                            let result = fizzBuzz.check(value)
-                            console.log(result)
-                            if (result == 'Man, how hard can it be to read the instructions!') {
-                            displayDiv.innerHTML = "<span style='display: block; font-size:40px; line-height:40px !important;'>"+result+"</span>";
+            <script>
+
+            count_draws = 0;
+            count_person = 0;
+            count_pc = 0;
+            
+            function pc() {
+
+                let pc = Math.floor(Math.random() * 3 + 1);
+                if (pc == 1) {
+                    pc = "rock";
+                } else if (pc == 2) {
+                    pc = "scissors";
+                } else {
+                    pc = "paper";
+                }
+                return pc;
+            }
+
+
+            function battle(person_selection){
+            
+            let pc_selection = pc();
+           
+
+                //Draft
+                if (person_selection  === pc_selection) {
+                        let result = "Draw";  
+                        console.log(result);
+                        count_draws++;
+                }
+
+                //Person selects rock
+                if (person_selection  === "rock") {
+                        if (pc_selection === "scissors") {
+                            let result = "Person/rock wins";
+                            console.log(result);
+                            count_person++;
+                        }
+                        else {
+                            if (pc_selection === "paper") {
+                            let result = "PC/paper wins";
+                            console.log(result);
+                            count_pc++;
                             }
-                            else {
-                            displayDiv.innerHTML = result;
-                            }
-                        })
-                    })
+                        }
+                }
+
+                 //Person selects scissors
+                if (person_selection  === "scissors") {
+                    if (pc_selection === "rock") {
+                        let result = "PC/rock wins";
+                        console.log(result);
+                        count_pc++;
+                    }
+                    else {
+                        if (pc_selection === "paper") {
+                        let result = "Person/scissors wins";
+                        console.log(result);
+                        count_person++;
+                        }
+                    }
+                }
+
+                 //Person selects paper
+                 if (person_selection  === "paper") {
+                    if (pc_selection === "rock") {
+                        let result = "Person/paper wins";
+                        console.log(result);
+                        count_person++;
+                    }
+                    else {
+                        if (pc_selection === "scissors") {
+                        let result = "PC/scissors wins";
+                        console.log(result);
+                        count_pc++;
+                        }
+                    }
+                }
+
+                document.getElementById("count_person").innerHTML = "Your Wins " + count_pc;
+                document.getElementById("count_draws").innerHTML = "Draws " + count_draws;
+                document.getElementById("count_pc").innerHTML = "PC Wins " + count_pc;
+               
+                }
+
+           
+
+
             </script>
-
-
+                
+             
 </body>
 </html>
