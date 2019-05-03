@@ -1,0 +1,207 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy|Montserrat');
+
+body { 
+        background: url('../img/background.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+h1 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size:70px;
+    color: white;
+    letter-spacing: 3px;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size:22px;
+    color: #3a3a3a47;
+    margin-bottom: -25px;
+}
+
+.answer {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 100px;
+    color: #588086;
+    margin-top: 64px;
+    margin-bottom: 20px;
+    text-shadow: 4px 1px 7px #FFFFFF;
+    line-height: 100px;
+}
+
+h3 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size:70px;
+    color: white;
+    letter-spacing: 3px;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size:25px;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height:100vh;      
+}
+
+.main_content {
+    padding: 20px;
+    resize: vertical;
+    overflow: auto;
+}
+
+.opacity {
+    opacity: 0.3;
+    filter: alpha(opacity=30); /* For IE8 and earlier */
+}
+
+input.value {
+    margin-top: 30px;
+    background: none;
+    border: 2px solid white;
+    border-radius: 38px;
+    padding: 8px;
+    width: 160px;
+    font-size: 38px;
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 200;
+    margin-bottom: 30px;
+}
+
+input.submit {
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+
+.icon_rock {
+    background: url('../img/icon_rock_white.svg') no-repeat top left;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 160px;
+    width: 160px;
+}
+
+.icon_rock_big {
+    background: url('../img/icon_rock_white.svg') no-repeat top;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+}
+
+.icon_draw_big {
+    background: url('../img/icon_draw_big.svg') no-repeat top;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+}
+
+.icon_rock:hover {
+    background: url('../img/icon_rock.svg') no-repeat top left;
+    }
+
+.icon_scissors {
+    background: url('../img/icon_scissor_white.svg') no-repeat top left;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 160px;
+    width: 160px;
+}
+
+.icon_scissors_big {
+    background: url('../img/icon_scissor_white.svg') no-repeat top;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 160px;
+    height: 300px;
+    width: 300px;
+}
+
+.icon_scissors:hover {
+    background: url('../img/icon_scissor.svg') no-repeat top left;
+}
+
+.icon_paper {
+    background: url('../img/icon_paper_white.svg') no-repeat top left;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 160px;
+    width: 160px;
+}
+    
+.icon_paper_big {
+    background: url('../img/icon_paper_white.svg') no-repeat top;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+    }
+    
+.icon_paper:hover {
+    background: url('../img/icon_paper.svg') no-repeat top left;
+    }
+ 
+span.question_mark {
+    background: url('../img/icon_questionmark_white.svg') no-repeat top left;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+    
+    }
+
+span.paper:hover {
+background: url('../img/icon_paper.svg') no-repeat top left;
+}
+
+@media (max-width: 576px) {
+
+h1 {
+font-size: 53px;
+line-height: 53px;
+}   
+
+h3 {
+font-size:53px;
+line-height: 53px;
+}
+.answer {
+    font-size: 62px;
+}
+    
+.container {
+margin-top:5%;
+justify-content: start !important;
+}
+
+input.value {
+margin-top: 30px;
+padding: 3px;
+width: 120px;
+font-size: 27px;
+}
+
+}

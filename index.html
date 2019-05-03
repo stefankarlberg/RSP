@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+     <script src="src/js/rps.js"></script>
+     <link href="src/css/style.css" rel="stylesheet">
+    <title>Rock Paper Scissor</title>
+</head>
+<body>
+
+             <div class="container xl mx-auto">
+                    <div id ="landing_page" class="main_content full sm:w-4/5 ml-auto mr-auto ">
+                        <div id="welcome" class="text-center w-full ml-auto"> 
+                            <h3>Rock</h3>
+                            <h1>Scissor</h1>
+                            <h3>Paper</h3>
+                            <p>Beat the PC!</p> 
+                        </div>
+
+                        <div id="battle_page_PC" style = "display:none" class="flex mr-auto ml-auto">  
+                            <div class="flex mr-auto ml-auto">
+                                <div class="flex-1 text-center w-2/5">
+                                    <h2>YOU</h2>
+                                    <div id="icon_big_person">
+                                        <button><span class="paper"></span></button>
+                                    </div>
+                                </div>
+                                <div class="flex-1 text-white text-center w-1/5">
+                                    <div id="battle_page_message" class="answer mt-32 text-4xl">
+                                    </div>
+                                </div>
+                                <div class="flex-1 text-center w-2/5">
+                                    <h2>PC</h2>
+                                    <div id="icon_big_pc">
+                                    <button><span class="paper"></span></button>
+                                    </div>
+                                </div>
+                            </div>          
+                        </div>
+     
+                        <div id="play" class="text-center w-full mr-auto ml-auto"><p>Press an icon to play!</p></div>
+                        <div id="play_again" style = "display:none" class="text-center block w-full mr-auto ml-auto"><p>Play again? Press an icon to play!</p></div>
+
+                        <div class="flex w-full mr-autoh-12 mt-8">
+                            <div class="w-1/3 text-right pin-r">
+                                <button id="rock" onclick="battle('rock', pc_selection)"><span class="icon_rock"></span></button>
+                            </div>
+                            <div class="w-1/3 text-center">
+                                <button id="scissors" onclick="battle('scissors', pc_selection)"><span class="icon_scissors"></span></button>
+                            </div>
+                            <div class="w-1/3 text-left pin-l ">
+                                <button id="paper" onclick="battle('paper', pc_selection)"><span class="icon_paper"></span></button>
+                            </div>
+                        </div>
+                        <div class="flex ml-auto mr-auto sm:w-2/3 mt-8 border p-10">
+                            <div class="w-1/3 text-white align-top text-center">
+                                <span id="count_person">Your wins: 1</span>
+                            </div>
+                            <div class="w-1/3 text-white align-top text-center">
+                                <span id="count_draws">Draws: 1</span>
+                            </div>
+                            <div class="w-1/3 text-white align-top text-center">
+                                <span id="count_pc">PC wins: 1</span>
+                            </div>
+                        </div>
+
+                            <div id="display_answer" class="answer text-center w-full mr-auto">
+                        </div>
+                    </div>   
+                </div>
+
+
+</body>
+</html>
