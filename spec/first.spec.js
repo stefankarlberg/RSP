@@ -15,4 +15,11 @@ describe('Your test case description', () => {
         // add an assertion using the `expect` keyword
         expect(sum).to.eql(5)
     })
+
+    it('add a descriptive test title', () => {
+        // Execute code if needed
+        const sum = array[0] + array[1]
+        // add an assertion using the `expect` keyword
+        expect(sum).to.eql(5)
+    })
 })

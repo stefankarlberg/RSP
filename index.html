@@ -5,296 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+     <script src="src/js/rps.js"></script>
+     <link href="src/css/style.css" rel="stylesheet">
     <title>Rock Paper Scissor</title>
-
-    <style>
-
-    @import url('https://fonts.googleapis.com/css?family=Montserrat');
-    @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy|Montserrat');
-
-    body { 
-            background: url('src/img/background.jpg') no-repeat center center fixed; 
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-     
-        }
-
-    h1 {
-        font-family: 'Luckiest Guy', cursive;
-        font-size:70px;
-        color: white;
-        letter-spacing: 3px;
-    }
-
-    h2 {
-        font-family: 'Montserrat', sans-serif;
-        font-size:30px;
-        color: white;
-        margin-bottom: 20px;
-    }
-
-    .answer {
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 100px;
-        color: #ff22a3;
-        margin-top: 30px;
-        margin-bottom: 20px;
-        text-shadow: 4px 1px 7px #FFFFFF;  
-    }
-
-    h3 {
-        font-family: 'Luckiest Guy', cursive;
-        font-size:70px;
-        color: white;
-        letter-spacing: 3px;
-    }
-
-    p {
-        font-family: 'Montserrat', sans-serif;
-        font-size:25px;
-        color: white;
-    }
-
-    .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            height:100vh;  
-            padding-top:5%;    
-        }
-
-    .main_content {
-            padding: 20px;
-            resize: vertical;
-            overflow: auto;
-        }
-   
-    input.value {
-            margin-top: 30px;
-            background: none;
-            border: 2px solid white;
-            border-radius: 38px;
-            padding: 8px;
-            width: 160px;
-            font-size: 38px;
-            color: white;
-            letter-spacing: 2px;
-            text-align: center;
-            font-weight: 200;
-            margin-bottom: 30px;
-        }
-
-    input.submit {
-    padding: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
-    }
-
-
-    span.rock {
-    background: url('src/img/icon_rock_white.svg') no-repeat top left;
-    background-size: contain;
-    cursor: pointer;
-    display: inline-block;
-    height: 160px;
-    width: 160px;
-}
-span.rock:hover {
-    background: url('src/img/icon_rock.svg') no-repeat top left;
-}
-
-span.scissor {
-    background: url('src/img/icon_scissor_white.svg') no-repeat top left;
-    background-size: contain;
-    cursor: pointer;
-    display: inline-block;
-    height: 160px;
-    width: 160px;
-}
-
-span.scissor:hover {
-    background: url('src/img/icon_scissor.svg') no-repeat top left;
-}
-
-span.paper {
-    background: url('src/img/icon_paper_white.svg') no-repeat top left;
-    background-size: contain;
-    cursor: pointer;
-    display: inline-block;
-    height: 160px;
-    width: 160px;
-}
-
-span.paper:hover {
-    background: url('src/img/icon_paper.svg') no-repeat top left;
-}
-
-    @media (max-width: 576px) {
-    
-    h1 {
-    font-size: 53px;
-    line-height: 53px;
-    }   
-    
-    h3 {
-    font-size:53px;
-    line-height: 53px;
-    }
-    .answer {
-        font-size: 62px;
-    }
-        
-    .container {
-    margin-top:5%;
-    justify-content: start !important;
-    }
-
-    input.value {
-    margin-top: 30px;
-    padding: 3px;
-    width: 120px;
-    font-size: 27px;
-}
-    
-    }
-    
-    </style>
-
 </head>
 <body>
 
-            <div class="container xl mx-auto">
-                    <div class="main_content full sm:w-3/4 ml-auto mr-auto ">
-                        <div class="text-center w-full ml-auto"> 
+             <div class="container xl mx-auto">
+                    <div id ="landing_page" class="main_content full sm:w-4/5 ml-auto mr-auto ">
+                        <div id="welcome" class="text-center w-full ml-auto"> 
                             <h3>Rock</h3>
                             <h1>Scissor</h1>
                             <h3>Paper</h3>
-                            <p>Beat the PC!</p>
-                            <p>Press an icon to play!</p>
-                            </div>
+                            <p>Beat the PC!</p> 
+                        </div>
+
+                        <div id="battle_page_PC" style = "display:none" class="flex mr-auto ml-auto">  
+                            <div class="flex mr-auto ml-auto">
+                                <div class="flex-1 text-center w-2/5">
+                                    <h2>YOU</h2>
+                                    <div id="icon_big_person">
+                                        <button><span class="paper"></span></button>
+                                    </div>
+                                </div>
+                                <div class="flex-1 text-white text-center w-1/5">
+                                    <div id="battle_page_message" class="answer mt-32 text-4xl">
+                                    </div>
+                                </div>
+                                <div class="flex-1 text-center w-2/5">
+                                    <h2>PC</h2>
+                                    <div id="icon_big_pc">
+                                    <button><span class="paper"></span></button>
+                                    </div>
+                                </div>
+                            </div>          
+                        </div>
+     
+                        <div id="play" class="text-center w-full mr-auto ml-auto"><p>Press an icon to play!</p></div>
+                        <div id="play_again" style = "display:none" class="text-center block w-full mr-auto ml-auto"><p>Play again? Press an icon to play!</p></div>
 
                         <div class="flex w-full mr-autoh-12 mt-8">
-                                <div class="w-1/3 text-right pin-r">
-                                    <button id="rock" onclick="battle('rock')"><span class="rock"></span></button>
-                                </div>
-                                <div class="w-1/3 text-center">
-                                    <button id="scissors" onclick="battle('scissors')"><span class="scissor"></span></button>
-                                </div>
-                                <div class="w-1/3 text-left pin-l ">
-                                    <button id="paper" onclick="battle('paper')"><span class="paper"></span></button>
-                                </div>
+                            <div class="w-1/3 text-right pin-r">
+                                <button id="rock" onclick="battle('rock', pc_selection)"><span class="icon_rock"></span></button>
+                            </div>
+                            <div class="w-1/3 text-center">
+                                <button id="scissors" onclick="battle('scissors', pc_selection)"><span class="icon_scissors"></span></button>
+                            </div>
+                            <div class="w-1/3 text-left pin-l ">
+                                <button id="paper" onclick="battle('paper', pc_selection)"><span class="icon_paper"></span></button>
+                            </div>
                         </div>
                         <div class="flex ml-auto mr-auto sm:w-2/3 mt-8 border p-10">
-                                <div class="w-1/3 text-white align-top text-center">
-                                 <span id="count_person">Your wins: 1</span>
-                                </div>
-                                <div class="w-1/3 text-white align-top text-center">
-                                 <span id="count_draws">Draws: 1</span>
-                                </div>
-                                <div class="w-1/3 text-white align-top text-center">
-                                    <span id="count_pc">PC wins: 1</span>
-                                 </div>
+                            <div class="w-1/3 text-white align-top text-center">
+                                <span id="count_person">Your wins: 1</span>
+                            </div>
+                            <div class="w-1/3 text-white align-top text-center">
+                                <span id="count_draws">Draws: 1</span>
+                            </div>
+                            <div class="w-1/3 text-white align-top text-center">
+                                <span id="count_pc">PC wins: 1</span>
+                            </div>
                         </div>
 
                             <div id="display_answer" class="answer text-center w-full mr-auto">
                         </div>
-                    </div>         
-            </div>
+                    </div>   
+                </div>
 
 
-            <script>
-
-            count_draws = 0;
-            count_person = 0;
-            count_pc = 0;
-            
-            function pc() {
-
-                let pc = Math.floor(Math.random() * 3 + 1);
-                if (pc == 1) {
-                    pc = "rock";
-                } else if (pc == 2) {
-                    pc = "scissors";
-                } else {
-                    pc = "paper";
-                }
-                return pc;
-            }
-
-
-            function battle(person_selection){
-            
-            let pc_selection = pc();
-           
-
-                //Draft
-                if (person_selection  === pc_selection) {
-                        let result = "Draw";  
-                        console.log(result);
-                        count_draws++;
-                }
-
-                //Person selects rock
-                if (person_selection  === "rock") {
-                        if (pc_selection === "scissors") {
-                            let result = "Person/rock wins";
-                            console.log(result);
-                            count_person++;
-                        }
-                        else {
-                            if (pc_selection === "paper") {
-                            let result = "PC/paper wins";
-                            console.log(result);
-                            count_pc++;
-                            }
-                        }
-                }
-
-                 //Person selects scissors
-                if (person_selection  === "scissors") {
-                    if (pc_selection === "rock") {
-                        let result = "PC/rock wins";
-                        console.log(result);
-                        count_pc++;
-                    }
-                    else {
-                        if (pc_selection === "paper") {
-                        let result = "Person/scissors wins";
-                        console.log(result);
-                        count_person++;
-                        }
-                    }
-                }
-
-                 //Person selects paper
-                 if (person_selection  === "paper") {
-                    if (pc_selection === "rock") {
-                        let result = "Person/paper wins";
-                        console.log(result);
-                        count_person++;
-                    }
-                    else {
-                        if (pc_selection === "scissors") {
-                        let result = "PC/scissors wins";
-                        console.log(result);
-                        count_pc++;
-                        }
-                    }
-                }
-
-                document.getElementById("count_person").innerHTML = "Your Wins " + count_pc;
-                document.getElementById("count_draws").innerHTML = "Draws " + count_draws;
-                document.getElementById("count_pc").innerHTML = "PC Wins " + count_pc;
-               
-                }
-
-           
-
-
-            </script>
-                
-             
 </body>
 </html>

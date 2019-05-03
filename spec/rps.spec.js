@@ -1,10 +1,18 @@
-const { rps } =  require('../spec.helper')
+require('../spec.helper')
+var rps = require('../src/js/rps.js');
 
-describe('rps', () => {
-    let rps1 = new rps
+describe('RPS Rspec', () => {
 
-it('returns', () => {
-    expect(rps1.start(1)).to.eql(1)
-});
+    it('should return draw', async () => {
+        expect(battle("rock", "rock")).to.eql('Draw');
+      })
 
+      it('should return person wins', async () => {
+        expect(battle("paper", "rock")).to.eql('You wins!');
+      })
+
+      it('should return PC wins', async () => {
+        expect(battle("paper", "rock")).to.eql('PC wins!');
+      })
+        
 })
